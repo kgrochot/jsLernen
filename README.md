@@ -1,16 +1,32 @@
-# React + Vite
+# JavaScript Notizen
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eine einfache Web-App zum Anzeigen von JavaScript-Notizen im Markdown-Format.
+Das Projekt wurde mit **React** und **Vite** erstellt und über **GitHub Pages** deployt.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 📄 Markdown-Dateien (`.md`) werden dynamisch geladen
+* 🎨 Syntax Highlighting für Code (highlight.js)
+* 📚 Sidebar-Navigation zwischen Themen
+* ⚡ Schnelles Setup mit Vite
+* 🌐 Deployment über GitHub Pages
 
-## React Compiler
+## Deployment Anleitung
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Das Deployment wurde basierend auf folgendem Tutorial umgesetzt:
+👉 https://www.youtube.com/watch?v=uXiwgO_p0Yg
 
-## Expanding the ESLint configuration
+## Technologien
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* Vite
+* marked (Markdown Parser)
+* highlight.js (Syntax Highlighting)
+
+## Hinweis
+
+Die Markdown-Dateien müssen sich im Ordner `public/content/` befinden, damit sie korrekt geladen werden.
+
+## Autor
+
+Katarzyna
