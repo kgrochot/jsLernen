@@ -6,15 +6,15 @@
 Strings werden verwendet, um **Textinformationen** zu speichern.  
 Sie werden in **einfachen (`'`) oder doppelten (`"`) Anführungszeichen** geschrieben.
 
-### Beispiele
+### Beispiele für Strings
 
-```javascript
+```js
 console.log("");             // leerer String
 console.log("string");       // ein Wort
 console.log("Hello, world"); // ein Satz
 ```
 
-```javascript
+```js
 console.log('a');    // einzelnes Zeichen
 console.log('1234'); // Zahlen als String
 ```
@@ -27,9 +27,9 @@ console.log('1234'); // Zahlen als String
 
 Numbers werden verwendet, um **numerische Werte** darzustellen.
 
-### Beispiele
+### Beispiele für Numbers
 
-```javascript
+```js
 console.log(12);
 console.log(0);
 console.log(-11);
@@ -52,11 +52,11 @@ Mit dem **`typeof` Operator** kann man den Datentyp prüfen.
 
 ### Beispiele
 
-```javascript
+```js
 console.log(typeof(9)); // number
 ```
 
-```javascript
+```js
 console.log(typeof 9); // number
 ```
 

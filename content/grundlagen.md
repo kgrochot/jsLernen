@@ -40,7 +40,7 @@ Damit reicht JavaScript von **einfachen Klick-Aktionen** bis hin zu **komplexen 
 Programme in JavaScript nennt man **Scripts**.  
 Hier ein einfaches Beispiel:
 
-```javascript
+```js
 let name = "Katarzyna";
 console.log(`Hallo ${name}, willkommen in der Welt von JavaScript!`);
 ```
