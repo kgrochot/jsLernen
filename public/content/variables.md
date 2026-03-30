@@ -31,12 +31,11 @@ Sinnvolle und gut lesbare Variablennamen machen den Code **verständlicher und l
 - **Beschreibende Namen** wählen, z. B. `benutzerName` statt `bn`.
 - **CamelCase** ist üblich: `let meineVariable = 5;`
 
-
 ---
 
 ## Beispiele für Variablen
 
-```javascript
+```js
 let name = "Katarzyna";
 let benutzerAlter = 30;
 const geburtsJahr = 1995;
@@ -62,7 +61,7 @@ console.log("Alter:", alter);
 
 ## Primitive Datentypen
 
-```javascript
+```js
 let name = "Katarzyna"   // String
 let age = 30             // Number
 let isDeveloper = true   // Boolean
@@ -74,7 +73,7 @@ let notDefined           // Undefined
 
 1. Klassische Funktion
 
-```javascript
+```js
 function greet(name) {
   return "Hallo " + name;
 }
@@ -84,7 +83,7 @@ greet("Katarzyna");
 
 2. Arrow Function
 
-```javascript
+```js
 const greet = (name) => {
   return "Hallo " + name;
 };
@@ -92,7 +91,7 @@ const greet = (name) => {
 
 3. Arrays
 
-```javascript
+```js
 const fruits = ["Apple", "Banana", "Orange"];
 console.log(fruits[0]); // Apple
 Objekte
@@ -106,7 +105,7 @@ console.log(person.name);
 
 4. DOM (Document Object Model)
 
-```javascript
+```js
 const title = document.querySelector("h1");
 title.textContent = "Neue Überschrift";
 Variablen-Deklaration
@@ -117,7 +116,7 @@ const → Block-Scope, konstant
 
 Beispiele Scope
 
-```javascript
+```js
 if (true) {
   let age = 21;
 }

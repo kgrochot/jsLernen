@@ -5,12 +5,12 @@ Strings werden verwendet, um **Namen, Nachrichten, Texte oder beliebige Zeichenf
 
 Beispiele:
 
-```javascript
+```js
 let name = "Katarzyna";
 let begrüßung = 'Hallo, Welt!';
 ```
 
-### Strings & console.log()  
+## Strings & console.log()  
 
 - **Funktion:** `console.log()` ist eine Funktion → ein wiederverwendbarer **Codeblock**, der etwas ausführt, z. B. Text ausgeben.  
   - Mit Klammern `()` wird die Funktion **aufgerufen**.  
@@ -25,13 +25,13 @@ Wenn du **Anführungszeichen innerhalb eines Strings** verwenden willst, gibt es
 
 **Andere Art von Anführungszeichen außen verwenden:**
 
-```javascript
+```js
 console.log("Yes, I'm ready to learn JS.");
 ```
 
 Escape-Zeichen \ nutzen:
 
-```javascript
+```js
 console.log('Yes, I\'m ready to learn JS.');
 ```
 
@@ -42,7 +42,7 @@ console.log('Yes, I\'m ready to learn JS.');
   - Gibt immer einen **String** zurück.  
   - Beispiel:
 
-```javascript
+```js
 let iStoreValueFromDialog = prompt("Which value do I need to store?");
 ```
 
@@ -50,7 +50,7 @@ let iStoreValueFromDialog = prompt("Which value do I need to store?");
 
 Wandelt einen String in eine Ganzzahl (Integer) um.
 
-```javascript
+```js
 let nowItIsNumber = parseInt('5'); // 5 als Zahl
 ```
 
@@ -64,7 +64,7 @@ let nowItIsNumber = parseInt('5'); // 5 als Zahl
   - Ein **Backslash `\`** vor einem Anführungszeichen **vermeidet Konflikte**, wenn es innerhalb eines Strings vorkommt.  
   - Beispiel:  
 
-```javascript
+```js
 console.log('I\'m learning JavaScript'); // Ausgabe: I'm learning JavaScript
 console.log("He said, \"Hello!\"");      // Ausgabe: He said, "Hello!"
 ```
@@ -83,5 +83,3 @@ console.log("He said, \"Hello!\"");      // Ausgabe: He said, "Hello!"
 
 - Template Strings (`` ` ``) sind oft am einfachsten, wenn du **beide Arten von Quotes** innerhalb eines Strings hast.  
 - Escape-Zeichen `\` benutzt man nur, wenn außen und innen **die gleiche Art von Quote** ist.
-
-s

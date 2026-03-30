@@ -4,25 +4,32 @@ import MarkdownPage from "./MarkdownPage";
 import "./App.css";
 
 export default function App() {
-  const [page, setPage] = useState("intro");
+  const [page, setPage] = useState("intro"); // default startseite
 
-  const pages = [
+  const links = [
     { id: "intro", label: "Einführung" },
     { id: "grundlagen", label: "Grundlagen" },
     { id: "variables", label: "Variablen" },
-    { id: "strings", label: "Strings" }
+    { id: "strings", label: "Strings" },
+    { id: "stringsNumbers", label: "Strings & Zahlen"},
+    { id: "binaryoperators", label: "Operatoren" },
+    { id: "arrays", label: "Arrays" },
+    { id: "objects", label: "Objekte" },
+    { id: "functions", label: "Funktionen" },
+    { id: "dom", label: "DOM-Manipulation" },
   ];
 
   return (
     <div className="container">
       <aside className="sidebar">
-        {pages.map(p => (
+        {links.map(link => (
           <a
-            key={p.id}
-            className={page === p.id ? "active" : ""}
-            onClick={() => setPage(p.id)}
+            key={link.id}
+            id={`link-${link.id}`}
+            className={page === link.id ? "active" : ""}
+            onClick={() => setPage(link.id)}
           >
-            {p.label}
+            {link.label}
           </a>
         ))}
       </aside>
