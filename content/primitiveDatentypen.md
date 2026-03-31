@@ -1,16 +1,16 @@
-## Primitive Datentypen
+# Primitive Datentypen und Non-Primitive Datentypen
 
-Primitive Werte sind **einfache Datentypen**, die **nicht veränderbar** (immutable) sind. Beispiele:
+**Primitive Werte sind **einfache Datentypen**, die **nicht veränderbar** (immutable) sind.**
 
 | Typ       | Beispiele                   |
-|-----------|----------------------------|
-| String    | `"Hallo Welt"`             |
-| Number    | `42`, `3.14`               |
-| Boolean   | `true`, `false`            |
-| Null      | `null`                     |
-| Undefined | `undefined`                |
-| Symbol    | `Symbol('id')`             |
-| BigInt    | `12345678901234567890n`    |
+| --------- | --------------------------- |
+| String    | `"Hallo Welt"`              |
+| Number    | `42`, `3.14`                |
+| Boolean   | `true`, `false`             |
+| Null      | `null`                      |
+| Undefined | `undefined`                 |
+| Symbol    | `Symbol('id')`              |
+| BigInt    | `12345678901234567890n`     |
 
 **Eigenschaften:**
 
@@ -31,11 +31,11 @@ let numbers = [1, 2, 3];                // Array
 function greet() { console.log("Hi"); } // Funktion
 ```
 
-# Unterschied zwischen `null` und `undefined` und wann sie verwendet werden
+## Unterschied zwischen `null` und `undefined` und wann sie verwendet werden
 
-## Null
+### Null
 
-`null` bedeutet, dass einer Variablen explizit ein leerer oder nicht vorhandener Wert zugewiesen wurde. 
+`null` bedeutet, dass einer Variablen explizit ein leerer oder nicht vorhandener Wert zugewiesen wurde.
 Wenn eine Variable `null` ist, wissen wir, dass sie **keinen akzeptablen Wert** wie Zahl, String oder einen anderen Datentyp enthält.
 
 Beispiel:
@@ -80,23 +80,23 @@ getDetails(); // undefined
 
 Im obigen Beispiel wird undefined ausgegeben, da der Parameter a in der Funktionsaufruf fehlt.
 
-# Merkhilfe: `null` vs `undefined`
+## Merkhilfe: `null` vs `undefined`
 
-| Merkmal                | `null`                                  | `undefined`                             |
-|------------------------|----------------------------------------|----------------------------------------|
+| Merkmal                | `null`                                  | `undefined`                            |
+|------------------------|---------------------------------------- |----------------------------------------|
 | Bedeutung              | Wert **bewusst leer** gesetzt           | Wert **nicht gesetzt** oder fehlt      |
-| Initialisierung        | `let x = null;`                         | `let x;`                                |
+| Initialisierung        | `let x = null;`                         | `let x;`                               |
 | Objekt-Eigenschaften   | Wird nicht automatisch erzeugt          | Wenn Property fehlt → `undefined`      |
 | Funktionsparameter     | Kann explizit `null` übergeben          | Wenn Parameter fehlt → `undefined`     |
-| Typ                     | `"object"` (JavaScript-Quirk)          | `"undefined"`                           |
-| Wann verwenden?        | Um **bewusst Leere oder “kein Wert”** zu signalisieren | Um zu prüfen, ob ein Wert **nicht vorhanden** ist |
+| Typ                    | `"object"` (JavaScript-Quirk)           | `"undefined"`                          |
+| Wann verwenden?        | Um **bewusst Leere oder "kein Wert"** zu signalisieren | Um zu prüfen, ob ein Wert **nicht vorhanden** ist |
 
 ### Faustregel
 
 - **null** = "Hier gibt es absichtlich keinen Wert."  
 - **undefined** = "Hier wurde kein Wert gesetzt oder existiert nicht."
 
-# Datentypen prüfen
+## Datentypen prüfen
 
 `null` und `undefined` bedeuten buchstäblich „kein Wert“, aber sie haben **verschiedene Datentypen**:
 
@@ -105,7 +105,7 @@ console.log(typeof null);       // object
 console.log(typeof undefined);  // undefined
 ```
 
-# Übersicht: `null` vs `undefined` – Datentypen
+## Übersicht: `null` vs `undefined` – Datentypen
 
 ```text
 ┌───────────────────────┐
@@ -128,7 +128,7 @@ console.log(typeof undefined);  // undefined
 └───────────────────────┘
 ```
 
-# Praxisbeispiel: `null` vs `undefined`
+## Praxisbeispiel: `null` vs `undefined`
 
 ```javascript
 // undefined: Variable existiert, Wert aber nicht gesetzt
