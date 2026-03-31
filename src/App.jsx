@@ -17,6 +17,7 @@ export default function App() {
     { id: "objects", label: "Objekte" },
     { id: "functions", label: "Funktionen" },
     { id: "dom", label: "DOM-Manipulation" },
+    { id: "primitiveDatentypen", label: "Primitive und Nicht-Primitive Datentypen" },
   ];
 
   return (
