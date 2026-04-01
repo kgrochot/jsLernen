@@ -210,7 +210,7 @@ hello ist kein Array
 
 ✅ So kannst du gezielt verschachtelte Arrays erkennen und unterschiedlich behandeln.
 
-## Fsszit
+## Faszit
 
 Zusammenfassend sind Arrays ein mächtiges Werkzeug in JavaScript, mit dem wir mehrere Elemente in einer einzigen Variable speichern können.
 Arrays sind spezielle Objekte in JavaScript und können auf zwei Arten initialisiert werden. Die zweite Methode wird bevorzugt, da sie einfacher und übersichtlicher ist.
@@ -221,8 +221,8 @@ Durch die Verwendung von Arrays lässt sich der Code vereinfachen und effiziente
 
 ### Arrays in JavaScript – Merkhilfe
 
-- **Definition:** Arrays speichern mehrere Elemente in einer einzigen Variable.  
-- **Initialisierung:**  
+**Definition:** Arrays speichern mehrere Elemente in einer einzigen Variable.  
+**Initialisierung:**  
 
   ```javascript
   let arr = [];        // bevorzugt
@@ -362,31 +362,31 @@ thisValue: der Wert, der innerhalb von mapFunction als this verwendet wird (opti
 
 1. Aus einem String
 
-    ```javascript
+ ```javascript
     Array.from('Hello'); // ['H', 'e', 'l', 'l', 'o']
-    ```
+```
 
-    Jeder Buchstabe des Strings wird zu einem Element im Array.
+Jeder Buchstabe des Strings wird zu einem Element im Array.
 
 2. Aus Funktionsargumenten
 
-    ```javascript
+```javascript
     function createArray(...args) {
     return Array.from(args);
     }
 
     createArray(2, 4, 6); // [2, 4, 6]
-    ```
+```
 
-    Die Spread-Syntax ...args erzeugt ein array-ähnliches Objekt, das Array.from() in ein echtes Array umwandelt.
+Die Spread-Syntax ...args erzeugt ein array-ähnliches Objekt, das Array.from() in ein echtes Array umwandelt.
 
 3. Mit einer Map-Funktion (Arrow Function)
 
-    ```javascript
+ ```javascript
     Array.from([3, 5, 7], x => x * x); // [9, 25, 49]
-    ```
+```
 
-    Hier wird jedes Element des Arrays mit der übergebenen Funktion transformiert (z. B. Quadrieren).
+Hier wird jedes Element des Arrays mit der übergebenen Funktion transformiert (z. B. Quadrieren).
 
 ## Array.of()
 
@@ -415,65 +415,65 @@ Array(10);     // Array mit 10 undefined-Werten
 
 1. `push()` fügt ein oder mehrere Elemente **am Ende eines Arrays** hinzu.
 
-    ```javascript
+```javascript
     let fruits = ['Apfel', 'Banane'];
     fruits.push('Orange');
     console.log(fruits); // ['Apfel', 'Banane', 'Orange']
-    ```
+```
 
 2. `pop()` entfernt das letzte Element eines Arrays und gibt es zurück.
 
-    ```javascript
+```javascript
     let fruits = ['Apfel', 'Banane', 'Orange'];
     let last = fruits.pop();
     console.log(last);   // 'Orange'
     console.log(fruits); // ['Apfel', 'Banane']
-    ```
+```
 
 3. `unshift()` fügt ein oder mehrere Elemente am Anfang eines Arrays hinzu.
 
-    ```javascript
+```javascript
     let fruits = ['Banane', 'Orange'];
     fruits.unshift('Apfel');
     console.log(fruits); // ['Apfel', 'Banane', 'Orange']
-    ```
+```
 
 4. `shift()` entfernt das erste Element eines Arrays und gibt es zurück.
 
-    ```javascript
+```javascript
     let fruits = ['Apfel', 'Banane', 'Orange'];
     let first = fruits.shift();
     console.log(first);   // 'Apfel'
     console.log(fruits);  // ['Banane', 'Orange']
-    ```
+```
 
 5. `map()` erstellt ein neues Array, indem es eine Funktion auf jedes Element des Arrays anwendet.
 
-    ```javascript
+```javascript
     let numbers = [1, 2, 3];
     let doubled = numbers.map(x => x * 2);
     console.log(doubled); // [2, 4, 6]
-    ```
+```
 
 6. `filter()` erstellt ein neues Array mit allen Elementen, die eine bestimmte Bedingung erfüllen.
 
-    ```javascript
+```javascript
     let numbers = [1, 2, 3, 4, 5];
     let even = numbers.filter(x => x % 2 === 0);
     console.log(even); // [2, 4]
-    ```
+```
 
 7. `reduce()` wendet eine Funktion auf alle Elemente an und gibt einen einzigen Wert zurück.
 
-    ```javascript
+```javascript
     let numbers = [1, 2, 3, 4];
     let sum = numbers.reduce((acc, x) => acc + x, 0);
     console.log(sum); // 10
-    ```
+```
 
 8. `splice()` kann Elemente entfernen, ersetzen oder hinzufügen.
 
-    ```javascript
+```javascript
     let fruits = ['Apfel', 'Banane', 'Orange'];
 
     // Entfernen
@@ -487,15 +487,15 @@ Array(10);     // Array mit 10 undefined-Werten
     // Ersetzen
     fruits.splice(2, 1, 'Pfirsich'); // Ab Index 2, 1 Element ersetzen
     console.log(fruits); // ['Apfel', 'Kiwi', 'Pfirsich', 'Orange']
-    ```
+```
 
 9. `slice()` erstellt ein neues Array, das eine Kopie eines Teils des Arrays enthält.
 
-    ```javascript
+```javascript
     let fruits = ['Apfel', 'Banane', 'Orange', 'Kiwi'];
     let someFruits = fruits.slice(1, 3); // Index 1 bis 2 (3 ausgeschlossen)
     console.log(someFruits); // ['Banane', 'Orange']
-    ```
+```
 
 ## Unterschied: `Array.of()` vs `Array.from()`
 
