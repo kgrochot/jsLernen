@@ -406,7 +406,7 @@ Array.of(undefined);       // [undefined]
 
 Der Unterschied zwischen Array.of() und dem Array-Konstruktor liegt in der Behandlung von Ganzzahlen:
 
-```javascript
+```js
 Array.of(10);  // [10] → Array mit einem Element
 Array(10);     // Array mit 10 undefined-Werten
 ```
@@ -415,7 +415,7 @@ Array(10);     // Array mit 10 undefined-Werten
 
 1. `push()` fügt ein oder mehrere Elemente **am Ende eines Arrays** hinzu.
 
-```javascript
+```js
 let fruits = ['Apfel', 'Banane'];
 fruits.push('Orange');
 console.log(fruits); // ['Apfel', 'Banane', 'Orange']
@@ -423,7 +423,7 @@ console.log(fruits); // ['Apfel', 'Banane', 'Orange']
 
 2. `pop()` entfernt das letzte Element eines Arrays und gibt es zurück.
 
-```javascript
+```js
 let fruits = ['Apfel', 'Banane', 'Orange'];
 let last = fruits.pop();
 console.log(last);   // 'Orange'
@@ -432,7 +432,7 @@ console.log(fruits); // ['Apfel', 'Banane']
 
 3. `unshift()` fügt ein oder mehrere Elemente am Anfang eines Arrays hinzu.
 
-```javascript
+```js
 let fruits = ['Banane', 'Orange'];
 fruits.unshift('Apfel');
 console.log(fruits); // ['Apfel', 'Banane', 'Orange']
@@ -449,7 +449,7 @@ console.log(fruits);  // ['Banane', 'Orange']
 
 5. `map()` erstellt ein neues Array, indem es eine Funktion auf jedes Element des Arrays anwendet.
 
-```javascript
+```js
 let numbers = [1, 2, 3];
 let doubled = numbers.map(x => x * 2);
 console.log(doubled); // [2, 4, 6]
@@ -457,7 +457,7 @@ console.log(doubled); // [2, 4, 6]
 
 6. `filter()` erstellt ein neues Array mit allen Elementen, die eine bestimmte Bedingung erfüllen.
 
-```javascript
+```js
 let numbers = [1, 2, 3, 4, 5];
 let even = numbers.filter(x => x % 2 === 0);
 console.log(even); // [2, 4]
@@ -465,7 +465,7 @@ console.log(even); // [2, 4]
 
 7. `reduce()` wendet eine Funktion auf alle Elemente an und gibt einen einzigen Wert zurück.
 
-```javascript
+```js
 let numbers = [1, 2, 3, 4];
 let sum = numbers.reduce((acc, x) => acc + x, 0);
 console.log(sum); // 10
@@ -473,7 +473,7 @@ console.log(sum); // 10
 
 8. `splice()` kann Elemente entfernen, ersetzen oder hinzufügen.
 
-```javascript
+```js
 let fruits = ['Apfel', 'Banane', 'Orange'];
 
 // Entfernen
@@ -491,7 +491,7 @@ console.log(fruits); // ['Apfel', 'Kiwi', 'Pfirsich', 'Orange']
 
 9. `slice()` erstellt ein neues Array, das eine Kopie eines Teils des Arrays enthält.
 
-```javascript
+```js
 let fruits = ['Apfel', 'Banane', 'Orange', 'Kiwi'];
 let someFruits = fruits.slice(1, 3); // Index 1 bis 2 (3 ausgeschlossen)
 console.log(someFruits); // ['Banane', 'Orange']
