@@ -300,3 +300,277 @@ Diese Variante wird in der Praxis seltener verwendet.
 - `new Object()` → **Object Constructor**, eher selten und meist unnötig.  
 
 💡 Tipp: Verwende immer `{}` für einfache, schnelle und saubere Objekte. Der Constructor ist nur nötig, wenn dynamisch Objekte erstellt oder besondere Prototypen genutzt werden.
+
+## Iteration über Objekte
+
+`Object.keys()`
+
+Die Methode `Object.keys()` erzeugt ein **Array aus allen Schlüsseln (Keys) eines Objekts**, sodass man die Array-Methoden wie `forEach()`, `map()`, `filter()` usw. verwenden kann.  
+
+**Syntax:**  
+
+```javascript
+let employee = {
+  name: 'Bruce Reese',
+  email: 'diam.sed@augue.org',
+  company: 'Velit Pellentesque Institute'
+};
+
+// Keys in ein Array speichern
+const employeeKeys = Object.keys(employee);
+
+console.log(employeeKeys);
+// Ausgabe: [ 'name', 'email', 'company' ]
+```
+
+Nun kann man über die Keys iterieren:
+
+```javascript
+// Jeden Key ausgeben
+employeeKeys.forEach(key => console.log(key));
+// Ausgabe:
+// name
+// email
+// company
+```
+
+Mit den Keys kann man auch auf die Werte des Objekts zugreifen:
+
+```javascript
+employeeKeys.forEach(key => console.log(employee[key]));
+// Ausgabe:
+// Bruce Reese
+// diam.sed@augue.org
+// Velit Pellentesque Institute
+```
+
+Man kann sogar Werte basierend auf Bedingungen überschreiben:
+
+```javascript
+employeeKeys.forEach(key => {
+  if (key === 'company') {
+    employee[key] = "Stiedemann Group";
+  }
+});
+
+console.log(employee);
+/*
+{
+  name: 'Bruce Reese',
+  email: 'diam.sed@augue.org',
+  company: 'Stiedemann Group'
+}
+*/
+```
+
+💡 Merksatz:
+Object.keys() verwandelt die Schlüssel eines Objekts in ein Array, sodass man die mächtigen Array-Methoden auf Objekte anwenden kann.
+
+`Object.values()`
+
+Die Methode `Object.values()` erzeugt ein **Array aus allen Werten eines Objekts**.  
+Damit kann man direkt mit Array-Methoden wie `forEach()`, `map()`, `filter()` usw. auf die Werte zugreifen.
+
+**Syntax:**  
+
+```javascript
+const employee = {
+  name: 'Bruce Reese',
+  email: 'diam.sed@augue.org',
+  company: 'Velit Pellentesque Institute'
+};
+
+// Werte in ein Array speichern
+const employeeValues = Object.values(employee);
+
+console.log(employeeValues);
+// Ausgabe: [ 'Bruce Reese', 'diam.sed@augue.org', 'Velit Pellentesque Institute' ]
+Iteration über die Werte
+employeeValues.forEach(value => console.log(value));
+// Ausgabe:
+// Bruce Reese
+// diam.sed@augue.org
+// Velit Pellentesque Institute
+```
+
+⚠️ Achtung:
+Man kann nur über Keys auf die Werte im Objekt zugreifen.
+Ein Versuch, ein Objekt über die Werte direkt zu indizieren, liefert undefined:
+
+```javascript
+employeeValues.forEach(value => console.log(employee[value]));
+// Ausgabe:
+// undefined
+// undefined
+// undefined
+```
+
+💡 Merksatz:
+Object.values() liefert ein Array aller Werte eines Objekts, perfekt für Iterationen über die Inhalte, ohne die Keys zu benötigen.
+
+`Object.entries()`
+
+Die Methode `Object.entries()` erzeugt ein **Array von Arrays**, wobei jedes innere Array ein **Schlüssel-Wert-Paar** des Objekts enthält.  
+Damit kannst du sowohl auf Keys als auch auf Werte gleichzeitig zugreifen.
+
+**Syntax:**  
+
+```javascript
+const employee = {
+  name: 'Bruce Reese',
+  email: 'diam.sed@augue.org',
+  company: 'Velit Pellentesque Institute'
+};
+
+const employeeEntries = Object.entries(employee);
+
+console.log(employeeEntries);
+/*
+[
+  [ 'name', 'Bruce Reese' ],
+  [ 'email', 'diam.sed@augue.org' ],
+  [ 'company', 'Velit Pellentesque Institute' ]
+]
+*/
+
+// Zugriff über Index
+console.log(employeeEntries[0]); // [ 'name', 'Bruce Reese' ]
+console.log(employeeEntries[1]); // [ 'email', 'diam.sed@augue.org' ]
+Iteration über die Key-Value-Paare
+employeeEntries.forEach(entry => {
+  const key = entry[0];
+  const value = entry[1];
+  console.log(`Key: ${key}, Value: ${value}`);
+});
+
+// Ausgabe:
+// Key: name, Value: Bruce Reese
+// Key: email, Value: diam.sed@augue.org
+// Key: company, Value: Velit Pellentesque Institute
+```
+
+💡 Merksatz:
+Object.entries() liefert ein Array aus [Key, Value]-Arrays, ideal für Iterationen, bei denen man sowohl Schlüssel als auch Werte gleichzeitig benötigt.
+
+## Übersicht: Iteration über Objekte
+
+| Methode              | Beschreibung                              | Rückgabewert                    | Beispiel für Iteration                                                       |
+|----------------------|-------------------------------------------|---------------------------------|------------------------------------------------------------------------------|
+| `Object.keys(obj)`   | Liefert **alle Schlüssel** eines Objekts  | Array der Keys                  | `Object.keys(employee).forEach(key => console.log(key))`                     |
+| `Object.values(obj)` | Liefert **alle Werte** eines Objekts      | Array der Values                | `Object.values(employee).forEach(value => console.log(value))`               |
+| `Object.entries(obj)`| Liefert **[Key, Value]-Paare** als Array  | Array von Arrays [[key, value]] | `Object.entries(employee).forEach(([key, value]) => console.log(key, value))`|
+
+### Beispielobjekt
+
+```javascript
+const employee = {
+  name: 'Bruce Reese',
+  email: 'diam.sed@augue.org',
+  company: 'Velit Pellentesque Institute'
+};
+```
+
+Nutzung der Methoden
+
+```javascript
+// Object.keys()
+Object.keys(employee).forEach(key => console.log(key));
+// name
+// email
+// company
+
+// Object.values()
+Object.values(employee).forEach(value => console.log(value));
+// Bruce Reese
+// diam.sed@augue.org
+// Velit Pellentesque Institute
+
+// Object.entries()
+Object.entries(employee).forEach(([key, value]) => console.log(`Key: ${key}, Value: ${value}`));
+// Key: name, Value: Bruce Reese
+// Key: email, Value: diam.sed@augue.org
+// Key: company, Value: Velit Pellentesque Institute
+```
+
+💡 Merksatz:
+
+Keys → nur Schlüssel
+Values → nur Werte
+Entries → Schlüssel und Wert zusammen
+Alle Methoden liefern Arrays, daher lassen sich Array-Methoden wie forEach, map, filter direkt nutzen.
+
+## Hinzufügen einer neuen Eigenschaft zu Objekten in einem Array
+
+Du hast ein Array von Objekten:
+
+```javascript
+let arr = [
+  {name: 'Joe', age: 25},
+  {name: 'Moe', age: 30},
+  {name: 'Doe', age: 35}
+];
+```
+
+📝 Ziel -> Ein neues Array erstellen, bei dem jedes Objekt eine zusätzliche Eigenschaft olderAge hat, die 5 Jahre mehr als age beträgt.
+
+Richtige Lösung: map() + Spread-Operator
+
+```javascript
+let newArr = arr.map(obj => ({...obj, olderAge: obj.age + 5}));
+
+console.log(newArr);
+/*
+[
+  { name: 'Joe', age: 25, olderAge: 30 },
+  { name: 'Moe', age: 30, olderAge: 35 },
+  { name: 'Doe', age: 35, olderAge: 40 }
+]
+*/
+```
+
+💡 Merksatz:
+
+map() erzeugt ein neues Array, ohne das Original zu verändern.
+{...obj} kopiert alle bestehenden Eigenschaften.
+Neue Eigenschaften können direkt in diesem Objekt-Literal hinzugefügt werden.
+
+### 📝 Aufgabe: Employee and Company
+
+Gegeben ist ein Array mit Objekten, die Informationen über Mitarbeiter enthalten.  
+Jedes Objekt besitzt die Eigenschaften `name`, `email` und `company`.
+Schreibe eine Funktion `employeeAndCompany`, die das Array durchläuft und für jedes Objekt folgenden Text in der Konsole ausgibt:
+
+`Employee <name> works for <company>`
+
+Greife auf die Eigenschaften der Objekte zu
+Iteriere über das Array
+Gib die Daten im richtigen Format aus
+
+💡 Tipp:
+Du kannst z. B. forEach() oder map() verwenden, um durch das Array zu iterieren.
+
+```js
+function employeeAndCompany(arr) {
+  arr.forEach(obj => {
+    const { name, company } = obj;
+    console.log(`Employee ${name} works for ${company}`);
+  });
+}
+
+// Beispiel
+const data = [
+  {
+    name: "Bruce Reese",
+    email: "diam.sed@augue.org",
+    company: "Velit Pellentesque Institute"
+  },
+  {
+    name: "Clarke Eaton",
+    email: "tempor@arcused.ca",
+    company: "Duis Ltd"
+  }
+  
+];
+
+employeeAndCompany(data);
+```
