@@ -18,6 +18,7 @@ export default function App() {
     { id: "functions", label: "Funktionen" },
     { id: "dom", label: "DOM-Manipulation" },
     { id: "primitiveDatentypen", label: "Primitive und Nicht-Primitive Datentypen" },
+    { id: "boolean-Typ", label: "Boolean-Typ" },
   ];
 
   return (
