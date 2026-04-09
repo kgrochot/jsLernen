@@ -66,17 +66,32 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: background 0.3s;
 }
 
+/* Gruppierung */
+.sidebar-group {
+  margin-bottom: 1rem;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #aaa; /* besser sichtbar auf dunklem Hintergrund */
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+/* Links */
 .sidebar a {
   display: block;
-  padding: 10px 14px;
+  padding: 8px 14px;
+  padding-left: 18px; /* Einrückung für Unterpunkte */
   border-radius: 8px;
   text-decoration: none;
   color: white;
   cursor: pointer;
   font-weight: 500;
+  margin-bottom: 4px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -85,6 +100,7 @@ body {
   transform: translateX(2px);
 }
 
+/* Aktiver Link */
 .sidebar a.active {
   background-color: #f39c12;
   color: #1e1e2f;
