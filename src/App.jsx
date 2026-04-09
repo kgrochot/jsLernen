@@ -13,7 +13,7 @@ const links = [
   { id: "datentypen/arrays", label: "Arrays" },
   { id: "datentypen/boolean-typ", label: "Boolean & logische Operatoren" },
   { id: "datentypen/null-undefined", label: "Null & Undefined" },
-  { id: "datentypen/objekte-einfuehrung", label: "Einführung in Objekte" },
+  { id: "datentypen/objects", label: "Einführung in Objekte" },
   { id: "datentypen/strings", label: "Strings" },
   { id: "datentypen/stringsNumbers", label: "Strings & Zahlen" },
 
