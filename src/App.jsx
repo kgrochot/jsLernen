@@ -12,6 +12,14 @@ export default function App() {
       items: [{ id: "intro", label: "Start" }]
     },
     {
+      title: "Grundlagen",
+      items: [
+        { id: "grundlagen/grundlagen", label: "Grundlagen" },
+        { id: "grundlagen/variables", label: "Variablen" },
+        { id: "grundlagen/functions", label: "Funktionen" },
+      ]
+    },
+    {
       title: "Datentypen",
       items: [
         { id: "datentypen/arrays", label: "Arrays" },
@@ -23,20 +31,16 @@ export default function App() {
       ]
     },
     {
-      title: "Grundlagen",
-      items: [
-        { id: "grundlagen/grundlagen", label: "Grundlagen" },
-        { id: "grundlagen/variables", label: "Variablen" },
-        { id: "grundlagen/functions", label: "Funktionen" },
-      ]
-    },
-    {
       title: "Operationen",
       items: [
+        { id: "operations/operations", label: "Operationen" },
         { id: "operations/binaryoperators", label: "Binäre Operatoren" },
-        { id: "operations/operations", label: "Operatoren" },
         { id: "operations/typumwandlung", label: "Typumwandlung" },
+        { id: "operations/vergleichsoperatoren", label: "Vergleichsoperatoren" },
+        { id: "operations/inkrement-dekrement", label: "Inkrement und Dekrement" },
+        { id: "zufallszahlen/zufallszahlen", label: "Zufallszahlen" }
       ]
+    
     }
   ];
 
