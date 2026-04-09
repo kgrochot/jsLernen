@@ -4,7 +4,7 @@ import MarkdownPage from "./MarkdownPage";
 import "./App.css";
 
 export default function App() {
-  const [page, setPage] = useState("intro"); // default startseite
+  const [page, setPage] = useState("intro");
 
   const links = [
     {
@@ -40,27 +40,59 @@ export default function App() {
     }
   ];
 
+  // ✅ jetzt erst benutzen
+  const defaultGroup = links.find(group =>
+    group.items.some(item => item.id === "intro")
+  )?.title;
+
+  const [openGroups, setOpenGroups] = useState([defaultGroup]);
+
+  const toggleGroup = (title) => {
+    setOpenGroups(prev =>
+      prev.includes(title)
+        ? prev.filter(t => t !== title)
+        : [...prev, title]
+    );
+  };
+
   return (
     <div className="container">
       <aside className="sidebar">
-        {links.map(group => (
-          <div key={group.title} className="sidebar-group">
+        {links.map(group => {
+          const isOpen = openGroups.includes(group.title);
+          const isActive = group.items.some(item => item.id === page);
 
-            <div className="sidebar-title">
-              {group.title}
-            </div>
+          return (
+            <div key={group.title} className="sidebar-group">
 
-            {group.items.map(link => (
-              <a
-                key={link.id}
-                className={page === link.id ? "active" : ""}
-                onClick={() => setPage(link.id)}
+              <div
+                className={`sidebar-title ${isActive ? "active-group" : ""}`}
+                onClick={() => toggleGroup(group.title)}
               >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        ))}
+                <span className="arrow">{isOpen ? "▼" : "▶"}</span>
+                <span className="folder">📁</span>
+                {group.title}
+              </div>
+
+              {isOpen && group.items.map(link => (
+                <a
+                  key={link.id}
+                  className={page === link.id ? "active" : ""}
+                  onClick={() => {
+                    setPage(link.id);
+                    if (!openGroups.includes(group.title)) {
+                      toggleGroup(group.title);
+                    }
+                  }}
+                >
+                  <span className="file">📄</span>
+                  {link.label}
+                </a>
+              ))}
+
+            </div>
+          );
+        })}
       </aside>
 
       <MarkdownPage page={page} />

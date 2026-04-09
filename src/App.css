@@ -70,29 +70,31 @@ body {
 
 /* Gruppierung */
 .sidebar-group {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
+  padding-left: 10px;
+  border-left: 2px solid #2e2e4d; /* 👈 visuelle Linie */
 }
 
+/* Titel (Kategorie) */
 .sidebar-title {
-  font-weight: bold;
-  margin: 10px 0 5px;
-  color: #aaa; /* besser sichtbar auf dunklem Hintergrund */
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 6px;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Links */
+/* Links (Unterpunkte) */
 .sidebar a {
   display: block;
-  padding: 8px 14px;
-  padding-left: 18px; /* Einrückung für Unterpunkte */
-  border-radius: 8px;
+  padding: 6px 10px;
+  margin-left: 10px; /* 👈 stärkere Einrückung */
+  border-radius: 6px;
   text-decoration: none;
   color: white;
-  cursor: pointer;
-  font-weight: 500;
-  margin-bottom: 4px;
-  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
 .sidebar a:hover {
