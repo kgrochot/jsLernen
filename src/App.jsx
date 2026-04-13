@@ -37,6 +37,7 @@ export default function App() {
         { id: "operations/binaryoperators", label: "Binäre Operatoren" },
         { id: "operations/typumwandlung", label: "Typumwandlung" },
         { id: "operations/vergleichsoperatoren", label: "Vergleichsoperatoren" },
+        { id: "operations/bedingteAnweisungen", label: "Bedingte Anweisungen" },
         { id: "operations/inkrement-dekrement", label: "Inkrement und Dekrement" },
         { id: "zufallszahlen/zufallszahlen", label: "Zufallszahlen" }
       ]

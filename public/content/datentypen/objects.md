@@ -574,3 +574,306 @@ const data = [
 
 employeeAndCompany(data);
 ```
+
+## Objekte und Methoden in JavaScript
+
+Beim Programmieren erstellen wir oft **Objekte**, um Dinge aus der realen Welt darzustellen: Benutzer, Produkte, Karten und vieles mehr.
+
+Im echten Leben kann man Produkte im Detail ansehen oder sie in den Warenkorb legen.  
+Genau solche Aktionen sind auch in der Programmierung möglich.
+
+In JavaScript werden diese Aktionen durch **Objekt-Methoden** ermöglicht.
+
+---
+
+## Was sind Objekt-Methoden?
+
+Objekt-Methoden sind **Funktionen, die als Eigenschaften (Properties) in einem Objekt gespeichert sind**.
+
+Sie ermöglichen es einem Objekt, **bestimmte Aktionen auszuführen**.
+
+---
+
+```js id="v3k8pq"
+let product = {
+  name: "Laptop",
+  price: 1200,
+  showDetails: function () {
+    console.log("Produkt: " + this.name + ", Preis: " + this.price);
+  }
+};
+
+product.showDetails();
+```
+
+## Erstellen von Objekt-Methoden
+
+Um zu verstehen, wie Objekt-Methoden erstellt werden, betrachten wir ein Beispiel.
+
+```js
+let product = {
+  name: "Microwave",
+  description: "With oven mode",
+  price: 398
+};
+
+product.giveDiscount = function() {
+  console.log("You have a 10% discount!");
+};
+
+product.giveDiscount(); // You have a 10% discount!
+
+```
+
+Erklärung - > Wir haben ein Objekt product mit Eigenschaften wie:
+- name
+- description
+- price
+
+Danach fügen wir dynamisch eine Methode hinzu:
+
+```js
+product.giveDiscount = function() { ... }
+```
+
+Diese Methode ist eine Funktion, die als Eigenschaft des Objekts gespeichert wird.
+
+Anschließend rufen wir sie auf:
+
+```js
+product.giveDiscount();
+```
+
+**⚠️ Wichtig:**
+
+Objekt-Methoden sind einfach Funktionen innerhalb eines Objekts.
+Sie ermöglichen es dem Objekt, Aktionen auszuführen, z. B. Informationen auszugeben oder Werte zu verändern.
+
+## Kurzschreibweise für Objekt-Methoden
+
+Es gibt eine kürzere und modernere Schreibweise, um Funktionen als Eigenschaften in Objekten zu definieren.
+
+---
+
+### Klassische Schreibweise
+
+```js
+id="a2k9sd"
+let person = {
+  greetings: function() {
+    console.log("Hello");
+  }
+};
+```
+
+### Kurzschreibweise
+
+```js
+let person = {
+  greetings() {
+    console.log("Hello");
+  }
+};
+```
+
+- Das Wort function wird weggelassen
+- Die Methode wird direkt im Objekt definiert
+- Der Code ist kürzer und besser lesbar
+
+Die *Kurzschreibweise* ist heute Standard in JavaScript, da sie:
+
+- weniger Schreibarbeit erfordert
+- den Code übersichtlicher macht
+
+## `this`-Keyword in JavaScript
+
+In der natürlichen Sprache können wir mit Pronomen auf eine bestimmte Person, ein Tier oder ein Objekt verweisen.  
+In JavaScript funktioniert das ähnlich mit dem Schlüsselwort `this`.
+
+---
+
+```js id="a9k3sd"
+let user = {
+  firstName: "Elliot",
+  lastName: "Alderson",
+  fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+console.log(user.fullName()); // Elliot Alderson
+```
+
+*this* verweist auf das Objekt, in dem die Methode aufgerufen wird. In diesem Fall ist das Objekt *user*
+Dadurch kann die Methode auf die Eigenschaften des Objekts zugreifen:
+
+- this.firstName
+- this.lastName
+
+👉 this bedeutet in einer Objektmethode immer: *„das Objekt, das die Methode gerade ausführt“*
+
+💡 Hinweis: bei verschachtelten Objekten -> Bei verschachtelten Strukturen kann this verwirrend sein.
+
+💡 Merke dir:
+
+*this* zeigt nicht einfach auf das äußere Objekt -> sondern auf das Objekt, dessen Methode gerade ausgeführt wird
+
+Das *this-Keyword* erlaubt es Methoden, flexibel auf Daten im eigenen Objekt zuzugreifen und macht JavaScript-Objekte dadurch dynamischer und leistungsfähiger.
+
+## „this“ und Arrow Functions
+
+Arrow Functions können kein eigenes `this` binden. Das bedeutet, dass sie **kein eigenes `this` besitzen**.
+
+Wenn wir `this` innerhalb einer Arrow Function verwenden, wird dessen Wert **aus dem umgebenden Kontext** (also einer normalen Funktion) übernommen:
+
+```javascript
+let movie = {
+  name: "The Thirteenth Floor",
+  year: 1999,
+  getInfo() {
+    let arrow = () => console.log("Der Film " + this.name + " wurde im Jahr " + this.year + " gedreht");
+    arrow();
+  }
+};
+
+movie.getInfo(); 
+```
+
+// Der Film The Thirteenth Floor wurde im Jahr 1999 gedreht.
+
+## 📘 Erklärung
+
+- 🧩 Die Methode `getInfo()` ist eine normale Funktion und besitzt ihr eigenes `this`.
+- ➡️ Die Arrow Function `arrow` übernimmt dieses `this` aus der äußeren Funktion.
+- 🎯 Dadurch verweist `this` korrekt auf das Objekt `movie`.
+
+---
+
+## ⚠️ Hinweis - 📚 Die Besonderheiten von `this` in JavaScript gehen weit über diese Beispiele hinaus.  
+
+### 1. 📦 Methode in einem Objekt
+👉 `this` = das Objekt selbst
+
+```javascript
+let obj = {
+  name: "Kasia",
+  show() {
+    console.log(this.name);
+  }
+};
+```
+
+### 2. 🌐 Normale Funktion (ohne Objekt)
+
+👉 this = globales Objekt (window im Browser) oder undefined im strict mode
+
+```javascript
+function show() {
+  console.log(this);
+}
+```
+
+### 3. 🏹 Arrow Function
+
+👉 kein eigenes this
+👉 übernimmt this vom äußeren Kontext
+
+```javascript
+let obj = {
+  name: "Kasia",
+  show() {
+    let arrow = () => console.log(this.name);
+    arrow();
+  }
+};
+```
+
+### 4. 🔧 call / apply / bind
+
+👉 this wird manuell gesetzt
+
+```javascript
+function show() {
+  console.log(this.name);
+}
+
+show.call({ name: "Kasia" });
+```
+
+### 5. 🆕 Konstruktor (new)
+
+```javascript
+👉 this = neues Objekt
+
+function Person(name) {
+  this.name = name;
+}
+
+let p = new Person("Kasia");
+```
+
+🎯 Goldene Regel
+
+👉 this hängt davon ab, WIE eine Funktion aufgerufen wird – nicht wo sie steht!
+
+### 🛠️ Problem: „undefined“-Werte in `this`
+
+#### 📌 Ausgangscode
+
+```javascript
+let laptop = {
+    brand: "Dell",
+    model: "XPS 13",
+    printSpecs: () => {
+        console.log(`This is a ${this.brand} ${this.model}`);
+    }
+};
+
+laptop.printSpecs();
+```
+
+❌ Problem - > Ausgabe: - > This is a undefined undefined
+
+🧠 Ursache 👉 Das Problem liegt an der Arrow Function (=>).
+
+🔴 Wichtiger Punkt:
+- Arrow Functions haben kein eigenes this
+- Sie übernehmen this aus dem äußeren Kontext (hier: nicht das Objekt laptop)
+
+Deshalb ist:
+- this.brand → undefined
+- this.model → undefined
+
+✅ Lösung 👉 Verwende eine normale Funktion (Function Expression):
+
+```javascript
+let laptop = {
+    brand: "Dell",
+    model: "XPS 13",
+    printSpecs: function() {
+        console.log(`This is a ${this.brand} ${this.model}`);
+    }
+};
+
+laptop.printSpecs();
+```
+
+🎯 Ergebnis
+
+This is a Dell XPS 13
+
+```javascript
+//🧾 Alternative (kurze Schreibweise)
+let laptop = {
+    brand: "Dell",
+    model: "XPS 13",
+    printSpecs() {
+        console.log(`This is a ${this.brand} ${this.model}`);
+    }
+};
+```
+
+🧠 Merksatz
+
+👉 Arrow Functions eignen sich nicht als Objektmethoden, wenn this benötigt wird.
+👉 Normale Funktionen binden this korrekt an das Objekt.
