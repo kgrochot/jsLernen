@@ -123,3 +123,95 @@ Wenn das zutrifft (true), wird der erste Wert gesetzt, sonst der zweite.
 
 Der ternäre Operator ist eine kompakte und elegante Möglichkeit, einfache if...else-Logik in einer einzigen Zeile auszudrücken.
 Er eignet sich besonders gut für kurze Zuweisungen.
+
+### 🔀 Switch-Statement – Einführung
+
+Du kennst bereits Bedingungen mit `if`. Für einfache Fälle ist das super 👍  
+Aber wenn es **viele mögliche Werte** gibt, wird `if...else` schnell unübersichtlich.
+
+## 🧠 Grundsyntax
+
+```javascript
+switch (value) {
+  case A:
+    // Code
+    break;
+  case B:
+    // Code
+    break;
+  default:
+    // Code
+}
+```
+
+## 📌 Beispiel mit `if`
+
+```javascript
+let cityTo = "Paris";
+
+if (cityTo === "Berlin") {
+  console.log("Der Preis beträgt $100");
+} else if (cityTo === "Paris") {
+  console.log("Der Preis beträgt $120");
+} else if (cityTo === "London") {
+  console.log("Der Preis beträgt $150");
+}
+```
+
+👉 Ausgabe:
+
+Der Preis beträgt $120
+
+❌ Problem:
+
+- schwerer zu lesen
+- viele Wiederholungen (cityTo === ...)
+
+✅ Lösung mit switch
+
+```javascript
+let cityTo = "Paris";
+
+switch (cityTo) {
+  case "Berlin":
+    console.log("Der Preis beträgt $100");
+    break;
+  case "Paris":
+    console.log("Der Preis beträgt $120");
+    break;
+  case "London":
+    console.log("Der Preis beträgt $150");
+    break;
+}
+```
+
+👉 Ergebnis: gleich wie vorher ✔️
+
+🧠 Wie funktioniert switch?
+
+- switch(cityTo) → prüft den Wert
+- case "Paris" → vergleicht mit dem Wert
+- Wenn gleich → Code wird ausgeführt
+
+👉 Wichtig:
+
+1. Vergleich erfolgt mit strikter Gleichheit (===)
+2. Typen müssen also exakt übereinstimmen
+
+⚠️ Wichtige Rolle von break
+
+```javascript
+case "Paris":
+  console.log("Der Preis beträgt $120");
+  break;
+```
+
+👉 break beendet den switch
+
+❌ Ohne break:
+
+Code läuft in die nächsten case-Blöcke weiter (Fallthrough)
+🎯 Merksatz
+
+👉 switch ist ideal, wenn du eine Variable mit vielen festen Werten vergleichst
+👉 break verhindert unerwünschtes Weiterlaufen
