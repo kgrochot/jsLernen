@@ -45,8 +45,8 @@ export default function App() {
     {
       title: "Funktionen",
       items: [
-        { id: "functions/builtinFunction", label: "Eingebaute Funktionen" },
-        { id: "functions/setTimeout", label: "setTimeout und setInterval" },
+        { id: "funktionen/builtinFunction", label: "Eingebaute Funktionen" },
+        { id: "funktionen/setTimeout", label: "setTimeout und setInterval" },
       ]
     }
   ];
