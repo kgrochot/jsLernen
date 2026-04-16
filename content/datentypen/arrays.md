@@ -882,3 +882,113 @@ animals.forEach(function(animal, index, array) {
 //array → ganzes System (komplettes Array: ["cat", "dog", "elephant"])
 ```
 
+## Array-Überprüfungsmethoden in JavaScript
+
+Bei großen Projekten kann es vorkommen, dass ein Array viele Elemente enthält.  
+Dann ist es wichtig zu prüfen, ob bestimmte Bedingungen erfüllt sind, damit die Anwendung korrekt funktioniert.
+
+Dafür gibt es spezielle Array-Methoden zur Überprüfung von Bedingungen:
+
+---
+
+### every()
+
+Die Methode `every()` prüft, ob **alle Elemente eines Arrays** eine bestimmte Bedingung erfüllen.
+
+Sie führt eine Funktion für jedes Element im Array aus und gibt einen **Boolean-Wert** zurück:
+
+- `true` → wenn **alle Elemente** die Bedingung erfüllen  
+- `false` → wenn **mindestens ein Element** die Bedingung nicht erfüllt  
+
+👉 Leere Elemente werden dabei übersprungen.
+
+---
+
+### Beispiel
+
+Du hast ein Array mit Zahlen und möchtest prüfen, ob **alle Zahlen größer als 10 sind**.
+
+```js
+const numbers = [2, 5, 11, 40];
+
+console.log(numbers.every(checkNumber));
+
+function checkNumber(number) {
+  return number > 10;
+}
+```
+
+### some()
+
+Die Methode `some()` prüft, ob **mindestens ein Element** in einem Array eine bestimmte Bedingung erfüllt.
+
+Sie führt eine Funktion für jedes Element aus und gibt einen **Boolean-Wert** zurück:
+
+- `true` → wenn **mindestens ein Element** die Bedingung erfüllt  
+- `false` → wenn **kein Element** die Bedingung erfüllt  
+
+👉 Leere Elemente im Array werden übersprungen.
+
+---
+
+### Beispiel
+
+Wir prüfen, ob **mindestens eine Zahl größer als 10 ist**:
+
+```js
+console.log(numbers.some(checkNumber));
+//true
+```
+
+### filter()
+
+Die Methode `filter()` erstellt ein **neues Array**, das nur die Elemente enthält, die eine bestimmte Bedingung erfüllen.
+
+Im Gegensatz zu `every()` und `some()` gibt `filter()` nicht nur `true` oder `false` zurück, sondern ein **neues Array mit den passenden Werten**.
+
+👉 Leere Elemente im Array werden ignoriert.
+
+---
+
+### Beispiel
+
+Wir möchten alle Zahlen aus dem Array erhalten, die **größer als 10** sind:
+
+```js
+console.log(numbers.filter(checkNumber));
+```
+
+Die gleiche Prüf-Funktion wie zuvor:
+
+```js
+function checkNumber(number) {
+  return number > 10;
+}
+```
+
+Beispiel-Array
+
+```js
+const numbers = [2, 5, 11, 40];
+```
+
+```text
+Ergebnis
+[ 11, 40 ]
+
+Erklärung
+2 → wird entfernt
+5 → wird entfernt
+11 → bleibt
+40 → bleibt
+```
+
+👉 filter() gibt nur die Elemente zurück, die die Bedingung erfüllen
+
+---
+
+### Zusammenfassung
+
+- `every()` → alle Elemente müssen passen
+- `some()` → mindestens ein Element reicht
+- `filter()` → gibt alle passenden Elemente als neues Array zurück
