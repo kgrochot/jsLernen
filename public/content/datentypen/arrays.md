@@ -559,3 +559,326 @@ function createDuplicateArray(element, n) {
 console.log(createDuplicateArray("x", 5)); 
 // Ausgabe: ["x", "x", "x", "x", "x"]
 ```
+
+## forEach in JavaScript
+
+### Was ist forEach?
+
+Die Methode `forEach()` wird verwendet, um eine Funktion auf jedes Element eines Arrays anzuwenden, ohne jedes Element einzeln über den Index ansprechen zu müssen.
+
+---
+
+```javascript
+// Beispiel ohne forEach
+arrayNames = ["Mike", "Alex", "Asya"];
+
+console.log(arrayNames[0]);
+console.log(arrayNames[1]);
+
+// Beispiel mit forEach
+arrayNames.forEach(function(element) {
+  console.log(element);
+});
+```
+
+### Wie funktioniert forEach?
+
+1. Geht jedes Element im Array nacheinander durch
+2. Führt für jedes Element die gleiche Aktion aus
+3. Arbeitet sequenziell (Element für Element)
+4. Überspringt leere oder nicht definierte Elemente
+
+```javascript
+// Beispiel mit leeren Einträgen
+arrayNames = ["Mike", , "Asya"];
+
+arrayNames.forEach(function(element) {
+  console.log(element);
+});
+```
+
+👉 Ausgabe:
+
+- Mike
+- Asya
+
+⚠️ Wichtig
+- forEach() kann nicht „übersprungen“ oder vorzeitig gestoppt werden
+- Es ist ideal für einfache Operationen auf allen Array-Elementen
+
+## forEach – Syntax in JavaScript
+
+### Grundsyntax
+
+```javascript
+array.forEach(callback, thisArg);
+```
+
+### 🔹 Parameter von forEach
+
+1. callback (Pflicht)
+
+Eine Funktion, die für jedes Array-Element ausgeführt wird.
+
+Sie kann 3 Parameter haben:
+
+- currentValue → aktuelles Element
+- index → Position des Elements
+- array → das komplette Array
+
+```javascript
+array.forEach(function(currentValue, index, array) {
+  // Aktion
+});
+```
+
+### 2. thisArg (optional)
+
+Ein Wert, der als this innerhalb der Callback-Funktion verwendet wird.
+
+```javascript
+const arrayFruit = ["pineapples", "oranges", "apples"];
+
+arrayFruit.forEach(function(value) {
+  console.log("Today I ate " + value);
+});
+
+//📤 Ausgabe
+//Today I ate pineapples
+//Today I ate oranges
+//Today I ate apples
+
+```
+
+🧠 Wichtig
+
+- forEach() läuft durch jedes Element im Array
+- Callback wird für jedes Element einzeln ausgeführt
+- currentValue ist das aktuell verarbeitete Element
+- index und array sind optional
+
+## Beispiele (Callbacks & thisArg)
+
+---
+
+## 🔹 1. Named Callback Function
+
+Du kannst statt einer anonymen Funktion auch eine benannte Funktion verwenden:
+
+```javascript
+function showText(value) {
+  console.log("Today I eat " + value);
+}
+
+arrayFruit.forEach(showText);
+```
+
+👉 Ergebnis ist identisch wie bei einer anonymen Funktion.
+
+## 🔹 2. Nutzung von allen Callback-Parametern
+
+Die Callback-Funktion kann bis zu 3 Parameter nutzen:
+
+- item (aktueller Wert)
+- index (Position im Array)
+- array (komplettes Array)
+
+```javascript
+function showItem(item, index, array) {
+  console.log(
+    "My value is " + item +
+    ". I'm the " + index +
+    " element of array " + array
+  );
+}
+
+arrayFruit.forEach(showItem);
+```
+
+📤 Ausgabe
+- My value is pineapples. I'm the 0 element of array pineapples,oranges,apples
+- My value is oranges. I'm the 1 element of array pineapples,oranges,apples
+- My value is apples. I'm the 2 element of array pineapples,oranges,apples
+
+## 🔹 3. thisArg (custom this)
+
+Du kannst ein eigenes this für die Callback-Funktion setzen:
+
+```javascript
+const customThis = {
+  value: 10
+};
+
+function showThisValue() {
+  console.log(this.value);
+}
+
+arrayFruit.forEach(showThisValue, customThis);
+
+//📤 Ausgabe - > 10
+```
+
+🧠 Wichtig
+
+1. Callback kann benannt oder anonym sein
+2. forEach gibt dir Zugriff auf:
+    - Wert
+    - Index
+    - komplettes Array
+3. thisArg setzt den Wert von this innerhalb der Funktion
+
+## Zusammenfassung – forEach
+
+In diesem Thema haben wir gelernt, wie man ein Array mit der Methode `forEach()` durchläuft.
+
+---
+
+### 🔹 Was macht forEach?
+
+- Durchläuft ein Array **Element für Element**
+- Führt eine Callback-Funktion für jedes Element aus
+- Arbeitet **sequenziell von links nach rechts**
+
+---
+
+### 🔹 Was kann die Callback-Funktion nutzen?
+
+Innerhalb von `forEach()` kannst du arbeiten mit:
+
+- **Wert (value / item)** → aktuelles Element
+- **Index** → Position im Array
+- **Array** → das komplette Array
+
+---
+
+### 🔹 thisArg
+
+Mit dem zweiten Parameter von `forEach()` kannst du ein eigenes `this` im Callback setzen.
+
+---
+
+### 🧠 Wichtig
+
+- `forEach()` verändert das Original-Array nicht
+- Es gibt keinen Rückgabewert
+- Es kann nicht mit `break` oder `return` gestoppt werden
+
+---
+
+## 🚀 Jetzt bist du dran!
+
+Zeit für etwas Praxis 💪  
+
+### 🟢 Aufgabe 1 - Gib jedes Element aus.
+
+```javascript
+const colors = ["red", "green", "blue"];
+```
+
+✅ Lösung
+
+```javascript
+colors.forEach(function(color) {
+  console.log(color);
+});
+```
+
+### 🟡 Aufgabe 2 – Text kombinieren
+👉 Ausgabe:
+    - I like apple
+    - I like banana
+    - I like mango
+
+```javascript
+const fruits = ["apple", "banana", "mango"];
+```
+
+✅ Lösung
+
+```javascript
+fruits.forEach(function(fruit) {
+  console.log("I like " + fruit);
+});
+```
+
+### 🟡 Aufgabe 3 – Mit Index
+👉 Ausgabe:
+    0: dog
+    1: cat
+    2: horse
+
+```javascript
+const animals = ["dog", "cat", "horse"];
+```
+
+✅ Lösung
+
+```javascript
+animals.forEach(function(animal, index) {
+  console.log(index + ": " + animal);
+});
+```
+
+### 🟠 Aufgabe 4 – Array + Index + Value
+
+```javascript
+const cities = ["Berlin", "Paris", "Rome"];
+```
+
+✅ Lösung
+
+```javascript
+cities.forEach(function(city, index, array) {
+  console.log(
+    "City " + index +
+    " is " + city +
+    " from array " + array
+  );
+});
+```
+
+### 🔴 Aufgabe 5 – thisArg (Challenge)
+
+👉 Ausgabe:
+    - 10
+    - 20
+    - 30
+
+```javascript
+const numbers = [1, 2, 3];
+
+const context = {
+  multiplier: 10
+};
+```
+
+✅ Lösung
+
+```javascript
+function showNumber(num) {
+  console.log(num * this.multiplier);
+}
+
+numbers.forEach(showNumber, context);
+```
+
+### 🚀 Bonus – Arrow Function Version
+
+```javascript
+numbers.forEach((num) => {
+  console.log(num * context.multiplier);
+});
+```
+
+🧠 Merksatz - > forEach() → für „mach etwas mit jedem Element“
+
+```javascript
+animals.forEach(function(animal, index, array) {
+  array[index] = animal.toUpperCase();
+});
+
+//animal → was? (aktuelles Element, z. B. "cat")
+//index → wo? (Position im Array, z. B. 0)
+//array → ganzes System (komplettes Array: ["cat", "dog", "elephant"])
+```
+

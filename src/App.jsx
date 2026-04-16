@@ -41,7 +41,13 @@ export default function App() {
         { id: "operations/inkrement-dekrement", label: "Inkrement und Dekrement" },
         { id: "zufallszahlen/zufallszahlen", label: "Zufallszahlen" }
       ]
-    
+    },
+    {
+      title: "Funktionen",
+      items: [
+        { id: "functions/builtinFunction", label: "Eingebaute Funktionen" },
+        { id: "functions/setTimeout", label: "setTimeout und setInterval" },
+      ]
     }
   ];
 
